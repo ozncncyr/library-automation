@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Automation</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <script type="module" src="/src/main.js"></script>
+    <div class="container">
+      <h1>📚 Library Automation</h1>
+      <div class="form">
+        <input type="text" id="bookTitle" placeholder="Book Title" />
+        <input type="text" id="authorName" placeholder="Author" />
+        <input type="text" id="publishDate" placeholder="Date" />
+        <input type="text" id="bookRating" placeholder="Rating" />
+        <input
+          type="textarea"
+          id="bookGenres"
+          placeholder="Genres(separated by comma)"
+        />
+        <button id="addBook">Add Book</button>
+      </div>
+      <ul id="bookList"></ul>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>

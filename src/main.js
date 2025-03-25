@@ -1,24 +1,71 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const bookList = document.getElementById("bookList");
+const addBtn = document.getElementById("addBook");
+const title = document.getElementById("bookTitle");
+const author = document.getElementById("authorName");
+const date = document.getElementById("publishDate");
+const rating = document.getElementById("bookRating");
+const genres = document.getElementById("bookGenres");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector('#counter'))
+let library = [];
+
+addBtn.addEventListener("click", () => { 
+  const book = {
+    title: title.value,
+    author: author.value,
+    date: date.value,
+    rating: rating.value,
+    genres: genres.value
+  };
+  library.push(book);
+  addBookToLibrary(book);
+  clearInputs();
+});
+
+const addBookToLibrary = (book) => {
+  const li = document.createElement("li");
+  li.classList.add("book");
+  li.innerHTML = `
+    <h3></h3>${book.title}</h3>
+    <p>${book.author}</p>
+    <p>${book.rating}</p>
+    <p>${book.genres}</p>
+    <button class="remove">Remove</button>
+  `;
+
+
+  const removeBtn = li.querySelector(".remove");
+  removeBtn.addEventListener("click", () => {
+    library = library.filter((b) => b.title !== book.title);
+    li.remove();
+  });
+
+  bookList.appendChild(li);
+
+  li.addEventListener("click", () => {
+    const toast = iziToast.show({
+      title: "Book Details",
+      message: `
+        <h3>Title: ${book.title}</h3>
+        <p>Author: ${book.author}</p>
+        <p>Rating: ${book.rating}</p>
+        <p>Genres: ${book.genres}</p>
+      `,
+      theme: "dark",
+      position: "topRight",
+      layout: 2
+    });
+
+    setTimeout(() => {
+      toast.destroy();
+    }, 5000);
+  })
+};
+
+const clearInputs = () => {
+  title.value = "";
+  author.value = "";
+  rating.value = "";
+  genres.value = "";
+};
+
