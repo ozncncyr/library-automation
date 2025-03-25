@@ -65,6 +65,7 @@ const addBookToLibrary = (book) => {
 const clearInputs = () => {
   title.value = "";
   author.value = "";
+  date.value = "";
   rating.value = "";
   genres.value = "";
 };
