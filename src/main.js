@@ -25,7 +25,6 @@ addBtn.addEventListener("click", () => {
     })
     return;
   } else {
-    rating.value = rating.value > 10 ? 10 : rating.rating;
     const book = {
       id: Date.now(),
       title: title.value,
