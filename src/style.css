@@ -68,7 +68,7 @@ ul li {
 .book-info {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
+  align-items: baseline;
 }
 
 .remove {
