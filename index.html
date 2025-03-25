@@ -2,6 +2,7 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Automation</title>
     <link rel="stylesheet" href="./src/style.css" />
@@ -12,8 +13,22 @@
       <div class="form">
         <input type="text" id="bookTitle" placeholder="Book Title" />
         <input type="text" id="authorName" placeholder="Author" />
-        <input type="text" id="publishDate" placeholder="Date" />
-        <input type="text" id="bookRating" placeholder="Rating" />
+        <input
+          type="number"
+          maxlength="4"
+          id="publishDate"
+          placeholder="Date"
+          oninput="this.value = this.value.slice(0, 4)"
+        />
+        <input
+          type="number"
+          max="10"
+          min="1"
+          step="0.1"
+          maxlength="3"
+          id="bookRating"
+          placeholder="Rating"
+        />
         <input
           type="textarea"
           id="bookGenres"
@@ -23,6 +38,6 @@
       </div>
       <ul id="bookList"></ul>
     </div>
-    <script src="./src/main.js" defer></script>
+    <script src="./src/main.js" type="module"></script>
   </body>
 </html>
