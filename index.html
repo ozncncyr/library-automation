@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Automation</title>
+    <script type="module" crossorigin src="/library-automation/assets/index-RsPdaYpp.js"></script>
+    <link rel="stylesheet" crossorigin href="/library-automation/assets/index-J7CDo2x8.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>📚 Library Automation</h1>
+      <div class="form">
+        <input type="text" id="bookTitle" placeholder="Book Title" />
+        <input type="text" id="authorName" placeholder="Author" />
+        <input
+          type="number"
+          maxlength="4"
+          id="publishDate"
+          placeholder="Date"
+          oninput="this.value = this.value.slice(0, 4)"
+        />
+        <input
+          type="number"
+          max="10"
+          min="1"
+          step="0.1"
+          maxlength="3"
+          id="bookRating"
+          placeholder="Rating"
+        />
+        <input
+          type="textarea"
+          id="bookGenres"
+          placeholder="Genres(separated by comma)"
+        />
+        <button id="addBook">Add Book</button>
+      </div>
+      <ul id="bookList"></ul>
+    </div>
+  </body>
+</html>
